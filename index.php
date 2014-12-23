@@ -1,9 +1,22 @@
 <?php
 /**
  * todo Fazer uma lista to do.
- */
-function getRoute($page) {
-    if (empty($page)) $page = 'home';
+
+$route = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+$path = explode('/', substr($route['path'], 1));
+
+echo "<pre>";
+print_r($path);
+echo "</pre>";
+die;
+*/
+
+function getRoute() {
+    $route = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+    $path = explode('/', substr($route['path'], 1));
+    $file = $path[0];
+
+    if (empty($file)) $file = 'home';
     $rotasValidas = array(
         'empresa',
         'servicos',
@@ -11,44 +24,12 @@ function getRoute($page) {
         'contato',
         'home'
     );
-
-    if (!in_array($page, $rotasValidas) || !is_file($page.".php")) {
+    if (!in_array($file, $rotasValidas) || !is_file($file.".php")) {
         header("HTTP/1.0 404 Not Found");
-        $page = '404';
+        $file = '404';
     }
 
-    require_once $page.'.php';
+
+    require_once $file.'.php';
 }
-getRoute($_GET['page']);
-
-
-
-/*
-function getRoute($page) {
-    if (!isset($page)) {
-        require_once "home.php";
-    } else {
-        switch ($page) {
-            case "empresa":
-                require_once "empresa.php";
-                break;
-            case "servicos":
-                require_once "servicos.php";
-                break;
-            case "produtos":
-                require_once "produtos.php";
-                break;
-            case "contato":
-                require_once "contato.php";
-                break;
-            case "home":
-                require_once "home.php";
-                break;
-            default:
-                header("HTTP/1.0 404 Not Found");
-                require_once "404.php";
-                break;
-        }
-    }
-}
-*/
+getRoute();

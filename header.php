@@ -2,11 +2,14 @@
 error_reporting(E_ERROR); ini_set("display_errors", 1);
 
 function isActive ($page) {
-    if ($_GET['page']==$page) {
+    $route = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+    $path = explode('/', substr($route['path'], 1));
+
+    if ($path[0]==$page) {
         echo 'class="active"';
     }
 
-    if (!isset($_GET['page']) && $page=='home') {
+    if (empty($path[0]) && $page=='home') {
         echo 'class="active"';
     }
 }
@@ -26,10 +29,10 @@ function isActive ($page) {
             <header>
                 <ul class="nav nav-pills nav-stacked">
                     <li <?php isActive('home') ?>><a href="/">Home</a></li>
-                    <li <?php isActive('empresa') ?>><a href="?page=empresa">Empresa</a></li>
-                    <li <?php isActive('produtos') ?>><a href="?page=produtos">Produtos</a></li>
-                    <li <?php isActive('servicos') ?>><a href="?page=servicos">Serviços</a></li>
-                    <li <?php isActive('contato') ?>><a href="?page=contato">Contato</a></li>
+                    <li <?php isActive('empresa') ?>><a href="/empresa">Empresa</a></li>
+                    <li <?php isActive('produtos') ?>><a href="/produtos">Produtos</a></li>
+                    <li <?php isActive('servicos') ?>><a href="/servicos">Serviços</a></li>
+                    <li <?php isActive('contato') ?>><a href="/contato">Contato</a></li>
                 </ul>
             </header>
         </div>
