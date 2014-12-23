@@ -12,10 +12,11 @@ function getRoute($page) {
         'home'
     );
 
-    if (!in_array($page, $rotasValidas)) {
+    if (!in_array($page, $rotasValidas) || !is_file($page.".php")) {
         header("HTTP/1.0 404 Not Found");
         $page = '404';
     }
+
     require_once $page.'.php';
 }
 getRoute($_GET['page']);
