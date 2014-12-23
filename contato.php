@@ -1,3 +1,4 @@
+<?php require_once "header.php"; ?>
     <main>
         <h1>Contato</h1>
         <h2>
@@ -17,3 +18,4 @@
             </fieldset>
         </form>
     </main>
+<?php require_once "footer.php"; ?>

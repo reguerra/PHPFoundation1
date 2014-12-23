@@ -1,3 +1,4 @@
+<?php require_once "header.php"; ?>
     <main>
         <h1>Produtos</h1>
         <p>
@@ -8,3 +9,4 @@
             Morbi volutpat in ipsum id ornare. Nam leo lorem, porttitor vitae erat vitae, sodales vestibulum neque. Fusce ac sagittis elit. Suspendisse scelerisque volutpat libero sed pellentesque. Integer pellentesque dignissim elementum. Nam sit amet turpis maximus, lobortis ligula nec, suscipit tortor. Vestibulum eget dapibus magna, eget ornare dolor. Donec scelerisque mollis efficitur. Nam augue orci, dapibus nec posuere ac, interdum eget nisl. Praesent vel finibus eros. Aliquam ut congue odio, sit amet varius libero. Aliquam tincidunt quis ante non dictum. Praesent condimentum nec ante id aliquam.
         </p>
     </main>
+<?php require_once "footer.php"; ?>

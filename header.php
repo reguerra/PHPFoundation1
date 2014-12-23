@@ -20,3 +20,19 @@ function isActive ($page) {
 </head>
 <body>
 <div class="container">
+
+    <div class="row">
+        <div class="col-xs-3">
+            <header>
+                <ul class="nav nav-pills nav-stacked">
+                    <li <?php isActive('home') ?>><a href="/">Home</a></li>
+                    <li <?php isActive('empresa') ?>><a href="?page=empresa">Empresa</a></li>
+                    <li <?php isActive('produtos') ?>><a href="?page=produtos">Produtos</a></li>
+                    <li <?php isActive('servicos') ?>><a href="?page=servicos">Serviços</a></li>
+                    <li <?php isActive('contato') ?>><a href="?page=contato">Contato</a></li>
+                </ul>
+            </header>
+        </div>
+
+        <div class="col-xs-9">
+            <main>
