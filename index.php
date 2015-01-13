@@ -11,6 +11,8 @@ echo "</pre>";
 die;
 */
 
+require_once "conexao_bd.php";
+
 function getRoute() {
     $route = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
     $path = explode('/', substr($route['path'], 1));
@@ -32,4 +34,6 @@ function getRoute() {
 
     require_once $file.'.php';
 }
+
 getRoute();
+

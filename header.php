@@ -1,4 +1,4 @@
-<?php
+ <?php
 error_reporting(E_ERROR); ini_set("display_errors", 1);
 
 function isActive ($page) {
@@ -33,6 +33,12 @@ function isActive ($page) {
                     <li <?php isActive('produtos') ?>><a href="/produtos">Produtos</a></li>
                     <li <?php isActive('servicos') ?>><a href="/servicos">Serviços</a></li>
                     <li <?php isActive('contato') ?>><a href="/contato">Contato</a></li>
+                    <form action="busca.php" name="Busca" method="get">
+                        <fieldset>Busca</fieldset>
+                        <label for="busca"></label>
+                        <input type="text" name="busca" id="busca" value="Realize sua busca aqui">
+                        <submit>Enviar</submit>
+                    </form>
                 </ul>
             </header>
         </div>

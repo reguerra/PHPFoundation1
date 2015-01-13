@@ -1,10 +1,12 @@
-<?php require_once "header.php"; ?>
-    <h1>Home</h1>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi maximus vitae massa sit amet pharetra. Morbi eget finibus metus. Fusce vitae odio eget nibh pellentesque cursus. Integer non ante dignissim, blandit est et, porttitor mi. Nunc dolor mi, euismod in magna a, consequat sodales dui. Sed lobortis vel quam vitae congue. Morbi eget nulla mi. Vestibulum in maximus mauris, id eleifend quam.
+<?php
 
-        Aenean feugiat tortor ac lorem porta, quis rutrum quam facilisis. Vivamus convallis porttitor mollis. Praesent eu vestibulum velit. Sed nec risus sit amet tortor pellentesque lacinia. Morbi id ultrices elit, non tincidunt nibh. Sed lobortis semper leo, eget porttitor nulla venenatis pulvinar. Nulla euismod ante ut facilisis faucibus. Vivamus elementum ex nulla, quis luctus felis dictum eget. Praesent eu arcu vitae lectus ornare lobortis vitae sed diam. Ut condimentum vulputate est nec vehicula. Vestibulum aliquet at ante eu gravida. Nullam vehicula orci quis blandit luctus. Nullam lectus nulla, consequat et pharetra sit amet, fermentum tempor libero. Fusce eros justo, pharetra et lorem ac, malesuada ornare lacus. Ut libero nisi, tincidunt in quam eu, mattis mattis libero. Sed eget dui suscipit, egestas risus vitae, vestibulum dui.
+require_once "conexao_bd.php";
 
-        Integer eros urna, placerat in risus eu, hendrerit aliquam lectus. Integer convallis pellentesque feugiat. Morbi eu facilisis nisl, in tempus libero. Etiam risus arcu, vulputate eu enim quis, dictum fermentum quam. Nunc blandit sagittis felis, in vehicula enim fermentum suscipit. Etiam bibendum mauris quam, vitae iaculis urna semper eget. Suspendisse dapibus rhoncus nulla, at consectetur nunc convallis nec. Sed sit amet magna nec felis malesuada laoreet mattis non magna. Praesent malesuada eu leo sit amet ornare. Proin ut nibh et ipsum tincidunt hendrerit. Donec gravida leo in lacus porta, vel sollicitudin odio vestibulum. Cras vitae aliquam erat.
-    </p>
-<?php require_once "footer.php"; ?>
+require_once "header.php";
+
+$query = "SELECT conteudo FROM conteudo WHERE titulo='home'";
+$stmt = conexaoDB()->query($query);
+$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+echo $resultado['conteudo'];
+
+require_once "footer.php";
