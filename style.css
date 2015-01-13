@@ -10,8 +10,14 @@
 
 footer { position: absolute; bottom: 3px; }
 
-form input { width: 519px; }
+.form-contato input { width: 519px; }
 
 #submit { width: 71px; position: relative; top: 41px; left: -36%; }
 
 form textarea { width: 519px; height: 293px; }
+
+.form-group { border: 1px solid #EDEDED; margin-top: 11px; padding: 7px; height: 113px; color: #337AB7; }
+
+.form-group input { width: 247px; margin-top: 7px; }
+
+.botao { background-color: #337AB7; color:#FFFFFF; }

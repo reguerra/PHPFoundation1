@@ -33,12 +33,15 @@ function isActive ($page) {
                     <li <?php isActive('produtos') ?>><a href="/produtos">Produtos</a></li>
                     <li <?php isActive('servicos') ?>><a href="/servicos">Serviços</a></li>
                     <li <?php isActive('contato') ?>><a href="/contato">Contato</a></li>
-                    <form action="busca.php" name="Busca" method="get">
-                        <fieldset>Busca</fieldset>
-                        <label for="busca"></label>
-                        <input type="text" name="busca" id="busca" value="Realize sua busca aqui">
-                        <submit>Enviar</submit>
-                    </form>
+                    <div class="form-group">
+                        <form action="busca.php" name="Busca" method="get">
+                            <fieldset>Busca</fieldset>
+                            <label for="busca">
+                            <input type="text" name="busca" id="busca" value="">
+                            </label>
+                            <input class="botao" type="submit">
+                        </form>
+                    </div>
                 </ul>
             </header>
         </div>

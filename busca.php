@@ -4,7 +4,7 @@ require_once "conexao_bd.php";
 
 require_once "header.php";
 
-$busca = filter_input($_GET, "busca");
+$busca = filter_input(INPUT_GET, "busca");
 $search = "SELECT * FROM conteudo WHERE conteudo LIKE :busca OR titulo LIKE :busca";
 $stmt = conexaoDB()->prepare($search);
 $busca = "%{$busca}%";
@@ -17,10 +17,10 @@ if (count($resultado)) {
         echo "<ul>";
         echo "<li>";
         echo "<a href=\"{$res['titulo']}\">{$res['titulo']}</a>";
-        echo "</li>";
     }
-    echo "</ul>";
+    echo "</li>";
 }
+echo "</ul>";
 
 
 require_once "footer.php";
