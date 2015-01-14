@@ -1,6 +1,5 @@
 <?php
 /**
- * todo - Fazer uma página de login;
  * todo - Fazer o mecanismo de login;
  * todo - Criar a home restrita com listagem das páginas;
  * todo - Conectar as páginas a um editor online;
@@ -8,6 +7,7 @@
  * todo - Configurar o redirecionamento;
  * todo - Configurar usuário e senha seguros;
  * todo - Criar fixture para adicionar usuário e senha;
+ * todo - Criar sessions;
 
 $route = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 $path = explode('/', substr($route['path'], 1));

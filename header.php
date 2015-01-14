@@ -33,16 +33,37 @@ function isActive ($page) {
                     <li <?php isActive('produtos') ?>><a href="/produtos">Produtos</a></li>
                     <li <?php isActive('servicos') ?>><a href="/servicos">Serviços</a></li>
                     <li <?php isActive('contato') ?>><a href="/contato">Contato</a></li>
-                    <div class="form-group">
-                        <form action="busca.php" name="Busca" method="get">
-                            <fieldset>Busca</fieldset>
+
+                </ul>
+                <?php if (session_start()) {
+     echo '<div>';
+     echo '<p>Você está logado</p>';
+     echo '<a href="logoff.php" id="logoff">Faça o logoff</a>';
+     echo '</div>';
+ } else {
+                echo '<div>';
+                        echo '<form action="login.php" class="form-group" name="login" method="post" id="login">';
+                            echo '<fieldset><h2>Login</h2></fieldset>';
+                            echo '<label for="user">Nome de usuário';
+                                echo '<input type="text" name="user" class="login">';
+                            echo '</label>';
+                            echo '<label for="senha">Senha';
+                                echo '<input type="password" name="senha">';
+                            echo '</label>';
+                            echo '<input type="submit" class="botao">';
+                        echo '</form>';
+                    echo '</div>';
+     } ?>
+                    <div>
+                        <form action="busca.php" name="Busca" method="get" class="form-group" id="busca">
+                            <fieldset><h2>Busca</h2></fieldset>
                             <label for="busca">
                             <input type="text" name="busca" id="busca" value="">
                             </label>
                             <input class="botao" type="submit">
                         </form>
                     </div>
-                </ul>
+
             </header>
         </div>
 

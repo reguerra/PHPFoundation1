@@ -25,3 +25,9 @@ form textarea { width: 519px; height: 293px; }
 .form-group input { width: 247px; margin-top: 7px; }
 
 .botao { background-color: #337AB7; color:#FFFFFF; }
+
+#login { height: auto; padding-top: 0px; }
+
+h2 { font-size: 15px; }
+
+#busca { height: auto; padding-top: 0px; }
