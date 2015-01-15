@@ -13,5 +13,7 @@ if ($user = $resultado['usuario'] and $senha = $resultado['senha']){
     $lifetime = 60*60*24;
     session_start();
     setcookie(session_name(),session_id(),time()+$lifetime);
-    http_redirect('http://localhost/home');
+    $_SESSION['login'] = 1;
+    echo 'logado';
+    //header('location: /');
         }

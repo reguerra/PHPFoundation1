@@ -35,7 +35,7 @@ function isActive ($page) {
                     <li <?php isActive('contato') ?>><a href="/contato">Contato</a></li>
 
                 </ul>
-                <?php if (session_start()) {
+                <?php if (isset($_SESSION['login'])) {
      echo '<div>';
      echo '<p>Você está logado</p>';
      echo '<a href="logoff.php" id="logoff">Faça o logoff</a>';

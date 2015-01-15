@@ -1,6 +1,5 @@
 <?php
 /**
- * todo - Fazer o mecanismo de login;
  * todo - Criar a home restrita com listagem das páginas;
  * todo - Conectar as páginas a um editor online;
  * todo - Configurar o update automático ao banco de dados;

@@ -1,4 +1,6 @@
 <?php
 
-session_write_close();
-http_redirect('http://localhost/home');
+session_start();
+session_destroy();
+
+header('location: /');
