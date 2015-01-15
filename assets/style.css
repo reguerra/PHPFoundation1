@@ -1,0 +1,33 @@
+#erro { color: #1567c4; }
+
+.row {  }
+
+.col-xs-3 { margin: 11px 0; }
+
+.col-xs-3 ul li a { display: block; padding-left: 3px; }
+
+.col-xs-3 ul li a:hover { text-decoration: none; color: #427fbc; }
+
+footer { position: absolute; bottom: 3px; }
+
+.form-contato input { width: 519px; }
+
+.small { width: 257px; margin-right: 2px; }
+
+#assunto { width: 519px; }
+
+#submit { width: 71px; position: relative; top: 41px; left: -36%; }
+
+form textarea { width: 519px; height: 293px; }
+
+.form-group { border: 1px solid #EDEDED; margin-top: 11px; padding: 7px 7px 11px 7px; height: 113px; color: #337AB7; }
+
+.form-group input { width: 247px; margin-top: 7px; }
+
+.botao { background-color: #337AB7; color:#FFFFFF; }
+
+#login { height: auto; padding-top: 0px; }
+
+h2 { font-size: 15px; }
+
+#busca { height: auto; padding-top: 0px; }
