@@ -1,4 +1,11 @@
  <?php
+require_once "login.php";
+
+if(isset ($login)) {
+    $logado = true;
+} else {
+    $logado = false;
+}
 error_reporting(E_ERROR); ini_set("display_errors", 1);
 
 function isActive ($page) {
@@ -35,7 +42,8 @@ function isActive ($page) {
                     <li <?php isActive('contato') ?>><a href="/contato">Contato</a></li>
 
                 </ul>
-                <?php if (isset($_SESSION['login'])) {
+                <?php
+                if ($logado == true) {
      echo '<div>';
      echo '<p>Você está logado</p>';
      echo '<a href="logoff.php" id="logoff">Faça o logoff</a>';
