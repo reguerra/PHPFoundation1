@@ -146,7 +146,8 @@ function getRoute() {
         'servicos',
         'produtos',
         'contato',
-        'home'
+        'home',
+        'admin'
     );
 
     if (in_array($file, $rotasValidas) && is_file($path.$file.".php")) {
@@ -183,17 +184,17 @@ function showContent() {
 function deletar (){
     global $conn;
     global $del;
-    $conn->query($del);
+    $conn->exec($del);
 }
 
 function criar (){
     global $conn;
     global $cria;
-    $conn->query($cria);
+    $conn->exec($cria);
 }
 
 function inserir (){
     global $conn;
     global $insere;
-    $conn->query($insere);
+    $conn->exec($insere);
 }

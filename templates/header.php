@@ -1,4 +1,6 @@
 <!doctype html>
+<?php define('__ROOT__', dirname(dirname(__FILE__)));
+require_once(__ROOT__.'/inc/functions.php');  ?>
 <html>
 <head>
 	<title>Projeto PHP Foundation</title>
