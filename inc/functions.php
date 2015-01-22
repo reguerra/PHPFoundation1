@@ -49,8 +49,7 @@ function conexaoDB() {
  * @return bool
  */
 function isUserLogged() {
-    session_start();
-    if (isset($_COOKIE['login']) && $_COOKIE['login'] == 'LOGGED') {
+   if (isset($_COOKIE['login']) && $_COOKIE['login'] == 'LOGGED') {
         return true;
     } else {
     return false;
@@ -171,12 +170,20 @@ function getRoute() {
  * Retorna o conteúdo da página.
  * @return void
  */
-function showContent() {
+function getContent() {
     $file = getPageFile();
     $query = "SELECT conteudo FROM conteudo WHERE titulo='$file'";
     $stmt = conexaoDB()->query($query);
     $resultado = $stmt->fetchColumn();
-    echo $resultado;
+    return $resultado;
+}
+
+/**
+ * Exibe o conteúdo da página.
+ * @return void
+ */
+function showContent() {
+    echo getContent();
 }
 
 // funções MySQL
