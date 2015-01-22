@@ -7,6 +7,7 @@ function runSummernote() {
     if (empty ($file)){
         $file = "home";
     }
+    getRoute();
     $conteudo = getContent();
 
     echo '<script>';

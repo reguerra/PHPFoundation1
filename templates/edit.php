@@ -8,14 +8,13 @@ $rotasValidas = array(
     'produtos',
     'contato',
     'home',
-    'admin'
 );
 
 echo '<ul>';
 
 foreach ($rotasValidas as $pag) {
     echo '<li>';
-    echo '<a href=/templates/'.$pag.'.php>'.$pag.'</a>';
+    echo '<a href='."/$pag".'>'.$pag.'</a>';
     echo '</li>';
 }
 

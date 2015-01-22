@@ -146,7 +146,7 @@ function getRoute() {
         'produtos',
         'contato',
         'home',
-        'admin'
+        'admin',
     );
 
     if (in_array($file, $rotasValidas) && is_file($path.$file.".php")) {
@@ -172,6 +172,7 @@ function getRoute() {
  */
 function getContent() {
     $file = getPageFile();
+    if (empty ($file)){$file = 'home';}
     $query = "SELECT conteudo FROM conteudo WHERE titulo='$file'";
     $stmt = conexaoDB()->query($query);
     $resultado = $stmt->fetchColumn();

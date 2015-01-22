@@ -35,11 +35,11 @@ require_once(__ROOT__.'/inc/functions.php');  ?>
 					?>
 					<div id="login-valid">
 						<p>Olá <?php echo $user->name ?>! Você está logado</p>
-						<a href="inc/logoff.php" id="logoff">Faça o logoff</a>
+						<a href="../templates/logoff.php" id="logoff">Faça o logoff</a>
 					</div>
 				<?php else : ?>
 					<div id="login-form">
-						<form action="inc/login.php" class="form-group" name="login" method="post" id="login">
+						<form action="../templates/login.php" class="form-group" name="login" method="post" id="login">
 							<fieldset><h2>Login</h2></fieldset>
 							<label for="user">Nome de usuário
 								<input type="text" name="user" class="login">

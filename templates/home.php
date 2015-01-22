@@ -4,13 +4,11 @@ require_once "header.php";
 
 if (isUserLogged() == true) {
     require_once (__ROOT__."/admin/home-admin.php");
+    echo '<h5><a href="../templates/admin.php">Clique aqui para voltar para a página de administração do site</a></h5>';
     die;
 }
 
-$query = "SELECT conteudo FROM conteudo WHERE titulo='home'";
-$stmt = conexaoDB()->query($query);
-$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-echo $resultado['conteudo'];
+showContent();
 
 
 require_once "footer.php";

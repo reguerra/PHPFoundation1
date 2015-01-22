@@ -10,7 +10,7 @@ $stmt->bindParam(":busca", $busca);
 $stmt->execute();
 $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-echo '<h1>Resultado da busca.</h1>';
+echo '<h1>Resultado da busca</h1>';
 if (count($resultado)) {
 	echo "<ul>";
     foreach($resultado as $res) {
