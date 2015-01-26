@@ -16,7 +16,7 @@ footer { position: absolute; bottom: 3px; }
 
 #assunto { width: 519px; }
 
-#submit { width: 71px; position: relative; top: 41px; left: -36%; }
+#submit { width: 71px; position: relative; top: 331px; left: -36%; }
 
 form textarea { width: 519px; height: 293px; }
 
@@ -31,3 +31,7 @@ form textarea { width: 519px; height: 293px; }
 h2 { font-size: 15px; }
 
 #busca { height: auto; padding-top: 0px; }
+
+#newuser { width: 393px; height: auto; margin-top: 31px; padding: 29px; }
+
+#botuser { width: 91px; margin-top: 19px; }

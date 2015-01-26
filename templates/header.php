@@ -50,6 +50,9 @@ require_once(__ROOT__.'/inc/functions.php');  ?>
 							<input type="submit" class="botao">
 						</form>
 					</div>
+					<div id="newuser">
+						<a href="/newuser">Clique aqui para criar um novo usuário</a>
+					</div>
 				<?php endif; ?>
 
 				<div id="search-form">

@@ -1,8 +1,6 @@
 <?php
-/**
- * todo - Conectar as páginas a um editor online;
- * todo - Configurar o update automático ao banco de dados;
-*/
+
+
 /*
 $route = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 $path = explode('/', substr($route['path'], 1));

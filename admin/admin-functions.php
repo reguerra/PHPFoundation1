@@ -22,3 +22,24 @@ function runSummernote() {
     echo '<input type="submit">';
     echo '</form>';
 }
+
+function delTableCont (){
+    global $delTable;
+    conexaoDB()->exec($delTable);
+}
+
+function delContent ()
+{
+    global $delContent;
+    conexaoDB()->exec($delContent);
+}
+
+function criaTableCont (){
+    global $criaTable;
+    conexaoDB()->exec($criaTable);
+}
+
+function insContent (){
+    global $insere;
+    conexaoDB()->exec($insere);
+}

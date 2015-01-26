@@ -147,6 +147,8 @@ function getRoute() {
         'contato',
         'home',
         'admin',
+        'newuser',
+        'tela-login'
     );
 
     if (in_array($file, $rotasValidas) && is_file($path.$file.".php")) {
@@ -189,20 +191,20 @@ function showContent() {
 
 // funções MySQL
 
-function deletar (){
-    global $conn;
+function delUser (){
     global $del;
-    $conn->exec($del);
+    conexaoDB()->exec($del);
 }
 
-function criar (){
-    global $conn;
+function criaUser (){
     global $cria;
-    $conn->exec($cria);
+    conexaoDB()->exec($cria);
 }
 
-function inserir (){
-    global $conn;
-    global $insere;
-    $conn->exec($insere);
+function insUser (){
+    $username = $_POST['username'];
+    $pass = $_POST['senha'];
+    $senha = password_hash($pass, PASSWORD_DEFAULT);
+    $insere = "INSERT INTO login (user, senha) VALUES ('$username', '$senha');";
+    conexaoDB()->exec($insere);
 }

@@ -2,13 +2,18 @@
 
 require_once "header.php";
 
+$file = getPageFile();
+if (empty ($file)) {$file = 'home';}
+
 if (isUserLogged() == true) {
-    require_once (__ROOT__."/admin/home-admin.php");
+    require_once (__ROOT__."/admin/admin-edit.php");
     echo '<h5><a href="../templates/admin.php">Clique aqui para voltar para a página de administração do site</a></h5>';
     die;
 }
 
-showContent();
+$file = ucfirst($file);
+echo '<h1>'.$file.'</h1>';
 
+showContent();
 
 require_once "footer.php";
