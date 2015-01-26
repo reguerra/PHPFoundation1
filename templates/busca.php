@@ -14,8 +14,10 @@ echo '<h1>Resultado da busca</h1>';
 if (count($resultado)) {
 	echo "<ul>";
     foreach($resultado as $res) {
+		$pagina = $res['titulo'];
+		$pag = ucfirst($pagina);
         echo "<li>";
-        	echo "<a href=\"{$res['titulo']}\">{$res['titulo']}</a>";
+        	echo "<a href=\"{$pagina}\">{$pag}</a>";
     	echo "</li>";
     }
 	echo "</ul>";

@@ -13,8 +13,9 @@ $rotasValidas = array(
 echo '<ul>';
 
 foreach ($rotasValidas as $pag) {
+    $pagina = ucfirst($pag);
     echo '<li>';
-    echo '<a href='."/$pag".'>'.$pag.'</a>';
+    echo '<a href='."/$pag".'>'.$pagina.'</a>';
     echo '</li>';
 }
 
