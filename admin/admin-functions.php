@@ -8,19 +8,23 @@ function runSummernote() {
         $file = "home";
     }
     getRoute();
-    $conteudo = getContent();
+    $conteudo = getContent(); ?>
 
-    echo '<script>';
-    echo '$(document) . ready(function () {';
-    echo "$('#summernote') . summernote();";
-    echo '})';
-    echo '</script>';
+    <script>
+    $(document) . ready(function () {
+    $('#summernote') . summernote();
+    })
+    </script>
 
-    echo '<form action="../admin/update.php" name="update" method="post">';
-    echo '<input type="text" name="page" value='.$file.'>';
-    echo '<div id = "summernote">'.'<textarea name="conteudo">'.$conteudo.'</textarea>'.'</div>';
-    echo '<input type="submit">';
-    echo '</form>';
+    <form action="../admin/update.php" name="update" method="post">
+    <input type="text" name="page" value=<?php echo $file?>>
+    <div id = "summernote">
+        <textarea name="conteudo">
+            <?php echo $conteudo ?>
+        </textarea>
+    </div>
+    <input type="submit">
+    </form> <?php
 }
 
 function delTableCont (){

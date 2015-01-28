@@ -3,6 +3,7 @@
 require_once "header.php";
 require_once "../inc/functions.php";
 
+
 if (strlen($_POST['senha']) < 6) { ?>
     <h3>Usuário não foi criado</h3>
     <p>Sua senha é curta demais. Clique abaixo para voltar para a tela de cadastro e escolher uma nova senha.</p><br>
@@ -29,9 +30,9 @@ if (strlen($_POST['senha']) < 6) { ?>
         }
         catch (Exception $e) { ?>
             <h3>Usuário não foi criado</h3>
-            <p>O nome de usuário já existe. Clique abaixo para voltar para a tela de cadastro e escolher um novo nome.</p><br>
-            <a href="/newuser">Voltar para a tela de cadastro</a>
-        <?php }
+            <p>O nome de usuário já existe. Favor escolher um novo nome de usuário.</p><br>
+            <a href="/newuser">Voltar para a tela de cadastro</a> <?php
+        }
     }
 }
 
