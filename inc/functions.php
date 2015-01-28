@@ -67,7 +67,7 @@ function getUserLogin()
     $conexao = conexaoDB()->prepare($query);
     $senha = filter_input(INPUT_POST, 'senha');
     $user = filter_input(INPUT_POST, 'user');
-    $conexao->bindValue(':user', $user);
+    $conexao->bindValue('user', $user);
     $conexao->execute();
     $resultado = $conexao->fetch(\PDO::FETCH_ASSOC);
 
@@ -175,9 +175,11 @@ function getRoute() {
 function getContent() {
     $file = getPageFile();
     if (empty ($file)){$file = 'home';}
-    $query = "SELECT conteudo FROM conteudo WHERE titulo='$file'";
-    $stmt = conexaoDB()->query($query);
-    $resultado = $stmt->fetchColumn();
+    $query = "SELECT conteudo FROM conteudo WHERE titulo=:file";
+    $stmt = conexaoDB()->prepare($query);
+    $stmt->bindValue('file', $file);
+    $stmt->execute();
+    $resultado = $stmt->fetch(\PDO::FETCH_COLUMN);
     return $resultado;
 }
 
@@ -205,6 +207,9 @@ function insUser (){
     $username = $_POST['username'];
     $pass = $_POST['senha'];
     $senha = password_hash($pass, PASSWORD_DEFAULT);
-    $insere = "INSERT INTO login (user, senha) VALUES ('$username', '$senha');";
-    conexaoDB()->exec($insere);
+    $insere = "INSERT INTO login (user, senha) VALUES (:username, :senha);";
+    $stmt = conexaoDB()->prepare($insere);
+    $stmt->bindValue('username', $username);
+    $stmt->bindValue('senha', $senha);
+    $stmt->execute();
 }
