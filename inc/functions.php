@@ -175,8 +175,10 @@ function getRoute() {
 function getContent() {
     $file = getPageFile();
     if (empty ($file)){$file = 'home';}
-    $query = "SELECT conteudo FROM conteudo WHERE titulo='$file'";
-    $stmt = conexaoDB()->query($query);
+    $query = "SELECT conteudo FROM conteudo WHERE titulo=:file";
+    $stmt = conexaoDB()->prepare($query);
+    $stmt->bindValue('file', $file);
+    $stmt->execute();
     $resultado = $stmt->fetchColumn();
     return $resultado;
 }
@@ -202,9 +204,12 @@ function criaUser (){
 }
 
 function insUser (){
+    $insere = "INSERT INTO login (user, senha) VALUES (:user, :senha);";
     $username = $_POST['username'];
     $pass = $_POST['senha'];
     $senha = password_hash($pass, PASSWORD_DEFAULT);
-    $insere = "INSERT INTO login (user, senha) VALUES ('$username', '$senha');";
-    conexaoDB()->exec($insere);
+    $stmt = conexaoDB()->prepare($insere);
+    $stmt->bindValue('user', $username);
+    $stmt->bindValue('senha', $senha);
+    $stmt->execute();
 }
