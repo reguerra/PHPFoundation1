@@ -1,4 +1,7 @@
 <?php
+
+require_once "Clientes.php";
+
 define('ABSPATH',   dirname( __FILE__ ) . '/..');
 
 define('DBHOST',    'localhost');
@@ -148,7 +151,11 @@ function getRoute() {
         'home',
         'admin',
         'newuser',
-        'tela-login'
+        'tela-login',
+        'listagem-clientes',
+        'cliente',
+        'novo-cliente',
+        'newclient'
     );
 
     if (in_array($file, $rotasValidas) && is_file($path.$file.".php")) {
@@ -212,4 +219,61 @@ function insUser (){
     $stmt->bindValue('user', $username);
     $stmt->bindValue('senha', $senha);
     $stmt->execute();
+}
+
+function listClientesAsc(){
+    $query = "SELECT nome FROM clientes ORDER BY nome ASC;";
+    $stmt = conexaoDB()->prepare($query);
+    $stmt->execute();
+    $resultado = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+    echo '<ul>';
+
+    foreach ($resultado as $cliente) {
+        $client = ucfirst($cliente);?>
+        <li>
+            <a href="/cliente?cliente=<?php echo $cliente; ?>">
+            <?php echo $client; ?>
+            </a>
+        </li> <?php
+    }
+
+    echo '</ul>';
+
+}
+
+function listClientesDesc(){
+    $query = "SELECT nome FROM clientes ORDER BY nome DESC;";
+    $stmt = conexaoDB()->prepare($query);
+    $stmt->execute();
+    $resultado = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+    echo '<ul>';
+
+    foreach ($resultado as $cliente) {
+        $client = ucfirst($cliente);?>
+        <li>
+            <a href="/cliente?cliente=<?php echo $cliente; ?>">
+                <?php echo $client; ?>
+            </a>
+        </li> <?php
+    }
+
+    echo '</ul>';
+}
+
+function listClienteInd(){
+    $query = "SELECT * FROM clientes WHERE nome=:nome;";
+    $stmt = conexaoDB()->prepare($query);
+    $nome = $_GET['cliente'];
+
+    $stmt->bindValue('nome', $nome);
+    $stmt->execute();
+    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    echo '<h3>'.$resultado['nome'].'</h3><br>';
+    echo 'Nome: '.$resultado['nome'].'<br>';
+    echo 'Idade: '.$resultado['idade'].'<br>';
+    echo 'CPF: '.$resultado['cpf'].'<br>';
+    echo 'Endereço: '.$resultado['endereco'].'<br>';
 }

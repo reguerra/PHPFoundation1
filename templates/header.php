@@ -50,11 +50,16 @@ require_once(__ROOT__.'/inc/functions.php');  ?>
 							<input type="submit" class="botao">
 						</form>
 					</div>
-					<div id="newuser">
-						<a href="/newuser">Clique aqui para criar um novo usuário</a>
-					</div>
 				<?php endif; ?>
-
+				<div id="newuser">
+						<a href="/newuser">Clique aqui para criar um novo usuário</a>
+				</div>
+				<div id="newclient">
+					<a href="/novo-cliente">Clique aqui para cadastrar um novo cliente</a>
+				</div>
+				<div id="clientes">
+					<a href="/listagem-clientes">Clique aqui para acessar a listagem de clientes</a>
+				</div>
 				<div id="search-form">
 					<form action="" name="Busca" method="get" class="form-group" id="busca">
 						<fieldset><h2>Busca</h2></fieldset>

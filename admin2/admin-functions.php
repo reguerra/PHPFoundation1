@@ -16,7 +16,7 @@ function runSummernote() {
     echo '})';
     echo '</script>';
 
-    echo '<form action="../admin/update.php" name="update" method="post">';
+    echo '<form action="/update.php" name="update" method="post">';
     echo '<input type="text" name="page" value='.$file.'>';
     echo '<div id = "summernote">'.'<textarea name="conteudo">'.$conteudo.'</textarea>'.'</div>';
     echo '<input type="submit">';
