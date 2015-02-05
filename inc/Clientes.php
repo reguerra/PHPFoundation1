@@ -1,21 +1,12 @@
 <?php
 
-class ORM {
-
-    public $table = '';
-
-    protected function flush () {
-
-    }
-}
-
 class Clientes {
     private $nome;
     private $idade;
     private $cpf;
     private $endereco;
 
-    public function __construct($nome, $idade, $cpf, $endereco)
+    public function __construct($nome = null, $idade = null, $cpf = null, $endereco = null)
     {
         $this->nome = $nome;
         $this->idade = $idade;
@@ -114,8 +105,62 @@ class Clientes {
         $stmt->execute();
     }
 
+    public function listClientesAsc(){
+        $query = "SELECT nome FROM clientes ORDER BY nome ASC;";
+        $stmt = conexaoDB()->prepare($query);
+        $stmt->execute();
+        $resultado = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
+        echo '<ul>';
+
+        foreach ($resultado as $cliente) {
+            $client = ucfirst($cliente);?>
+            <li>
+                <a href="/cliente?cliente=<?php echo $cliente; ?>">
+                    <?php echo $client; ?>
+                </a>
+            </li> <?php
+        }
+
+        echo '</ul>';
+
+    }
+
+    public function listClientesDesc(){
+        $query = "SELECT nome FROM clientes ORDER BY nome DESC;";
+        $stmt = conexaoDB()->prepare($query);
+        $stmt->execute();
+        $resultado = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+        echo '<ul>';
+
+        foreach ($resultado as $cliente) {
+            $client = ucfirst($cliente);?>
+            <li>
+                <a href="/cliente?cliente=<?php echo $cliente; ?>">
+                    <?php echo $client; ?>
+                </a>
+            </li> <?php
+        }
+
+        echo '</ul>';
+    }
+
+    public function listClienteInd()
+    {
+        $query = "SELECT * FROM clientes WHERE nome=:nome;";
+        $stmt = conexaoDB()->prepare($query);
+        $nome = $_GET['cliente'];
+
+        $stmt->bindValue('nome', $nome);
+        $stmt->execute();
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        echo '<h3>' . $resultado['nome'] . '</h3><br>';
+        echo 'Nome: ' . $resultado['nome'] . '<br>';
+        echo 'Idade: ' . $resultado['idade'] . '<br>';
+        echo 'CPF: ' . $resultado['cpf'] . '<br>';
+        echo 'Endereço: ' . $resultado['endereco'] . '<br>';
+    }
 }
-
-
 

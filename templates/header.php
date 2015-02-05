@@ -54,9 +54,9 @@ require_once(__ROOT__.'/inc/functions.php');  ?>
 				<div id="newuser">
 						<a href="/newuser">Clique aqui para criar um novo usuário</a>
 				</div>
-				<div id="newclient">
+				<!--<div id="newclient">
 					<a href="/novo-cliente">Clique aqui para cadastrar um novo cliente</a>
-				</div>
+				</div>-->
 				<div id="clientes">
 					<a href="/listagem-clientes">Clique aqui para acessar a listagem de clientes</a>
 				</div>
