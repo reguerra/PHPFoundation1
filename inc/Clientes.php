@@ -163,4 +163,3 @@ class Clientes {
         echo 'Endereço: ' . $resultado['endereco'] . '<br>';
     }
 }
-
