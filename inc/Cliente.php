@@ -124,28 +124,39 @@ class Cliente
 
     public function setBoth()
     {
-        $nome = $this->getNome();
+        $cliente = $this->getNome();
         $classificacao = $this->getClassificacao();
         $endcobranca = $this->getEndcobranca();
 
         if (empty ($classificacao) or empty ($endcobranca)){?>
-            <form action="/newclient" class="form-group" id="form-cliente" name="form-cliente" method="post">
+            <form action="/dados" class="form-group" id="form-cliente" name="form-cliente" method="post">
                 <?php
-                if (empty($classificacao) && ! empty($endcobranca)){ ?>
-                    <input type="text" value="<?php echo $nome;?>" name="cliente"><br><br> <?php
-                    $this->setClassif();
+                if (empty($classificacao) && ! empty($endcobranca)){
+                    if (! empty($_SESSION[$cliente]['classificacao'])){
+                        echo 'Classificação: '.$_SESSION[$cliente]['classificacao'].'<br>';}
+                        else {?>
+                    <input type="text" value="<?php echo $cliente;?>" name="cliente"><br><br> <?php
+                    $this->setClassif();}
                     echo 'Endereço de cobrança: '.$endcobranca.'<br><br>';
                 } if (empty($endcobranca) && ! empty($classificacao)){
                     echo 'Classificação: '.$classificacao.'<br><br>';
-                    ?>
-                    <input type="text" value="<?php echo $nome;?>" name="cliente"><br><br> <?php
+                    if (! empty ($_SESSION[$cliente]['endcobranca'])){
+                        echo 'Endereço de cobrança: '.$_SESSION[$cliente]['endcobranca'].'<br>';
+                    }else { ?>
+                    <input type="text" value="<?php echo $cliente;?>" name="cliente"><br><br> <?php
                     $this->setEndCob();
-                } if (empty($classificacao) && empty($endcobranca)){
-                    ?>
-                    <input type="text" value="<?php echo $nome;?>" name="cliente"><br><br> <?php
+                }} if (empty($classificacao) && empty($endcobranca)){
+                    if (!empty ($_SESSION[$cliente]['classificacao'])){
+                        echo 'Classificação: '.$_SESSION[$cliente]['classificacao'].'<br>';
+                    }
+                    if (! empty ($_SESSION['endcobranca'])){
+                        echo 'Endereço de cobrança: '.$_SESSION[$cliente]['endcobranca'].'<br>';
+                    }
+                    if (empty ($_SESSION[$cliente]['classificacao']) && empty ($_SESSION['endcobranca'])){?>
+                    <input type="text" value="<?php echo $cliente;?>" name="cliente"><br><br> <?php
                     $this->setClassif();
                     $this->setEndCob();
-                } ?>
+                }} ?>
                 <input type="submit" value="Enviar" class="cliente-enviar">
             </form> <?php
         } else {
@@ -157,15 +168,15 @@ class Cliente
     public function setDois(){
 
         if (! empty($_POST['cliente'])){
+            $cliente = $_POST['cliente'];
             $classificacao = $_POST['classificacao'];
             $endcobranca = $_POST['endcob'];
 
             if (isset ($classificacao) && ! empty($_POST['classificacao'])){
-                $this->setClassif($classificacao);
-                return $this;
-                } if (isset($endcobranca) && ! empty($endcobranca)){
-                $this->setEndCob($_POST['endcob']);
-                return $this;
+                $_SESSION[$cliente]['classificacao'] = $classificacao;
+                }
+            if (isset($endcobranca) && ! empty($endcobranca)){
+                $_SESSION[$cliente]['endcobranca'] = $endcobranca;
                 }
         }
     }

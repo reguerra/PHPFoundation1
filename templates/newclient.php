@@ -170,8 +170,3 @@ $clientes = [
     'pj10' => $pj10,
 ];
 
-if (isset ($_GET['cliente']) && ! empty ($_GET['cliente'])) {
-    $cliente = $clientes[$_GET['cliente']];
-
-    $cliente->setDois();
-}

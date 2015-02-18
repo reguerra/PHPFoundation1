@@ -63,7 +63,7 @@ function getRoute() {
         'cliente',
         'novo-cliente',
         'newclient',
-        'classificacao'
+        'dados'
     );
 
     if (in_array($file, $rotasValidas) && is_file($path.$file.".php")) {

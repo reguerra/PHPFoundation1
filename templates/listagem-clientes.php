@@ -20,12 +20,13 @@ echo '<p>Clique no cliente para listar os dados individuais</p>'; ?>
 
     <?php
 
-    foreach ($clientes as $cliente){
-        $classificacao = $cliente->getClassificacao();
-        $nome = $cliente->getNome();?>
+    foreach ($clientes as $c){
+        $classificacao = $c->getClassificacao();
+        $cliente = $c->getNome();?>
+
         <div class="pessoa">
-            <h5><a href="/cliente?cliente=<?php echo $nome; ?>">
-                <?php if ($cliente instanceof ClientePF) {
+            <h5><a href="/cliente?cliente=<?php echo $cliente; ?>">
+                <?php if ($c instanceof ClientePF) {
                     echo 'Pessoa Física';
                 } else {
                     echo 'Pessoa Jurídica';
@@ -33,14 +34,18 @@ echo '<p>Clique no cliente para listar os dados individuais</p>'; ?>
             </a></h5>
         </div>
         <div class="nome">
-            <h5><a href="/cliente?cliente=<?php echo $nome; ?>">
-                <?php echo $nome; ?>
+            <h5><a href="/cliente?cliente=<?php echo $cliente; ?>">
+                <?php echo $cliente; ?>
             </a></h5>
         </div>
         <div class="classif">
-            <h5><a href="/cliente?cliente=<?php echo $nome; ?>">
+            <h5><a href="/cliente?cliente=<?php echo $cliente; ?>">
                 <?php if (!empty ($classificacao)) {
-                    echo $classificacao;} else {
+                    echo $classificacao;}
+                elseif (isset ($_SESSION[$cliente]['classificacao']) && ! empty($_SESSION[$cliente]['classificacao'])){
+                    echo $_SESSION[$cliente]['classificacao'];
+                }
+                else {
                     echo '';
                 } ?>
             </a></h5>
