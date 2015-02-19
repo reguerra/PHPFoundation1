@@ -1,5 +1,7 @@
 <?php
 
+require_once 'functions.php';
+
 class Cliente
 {
     private $nome;
@@ -92,19 +94,6 @@ class Cliente
             echo 'Endereço de Cobrança: ' . $endcobranca . '<br>';
         }
     }*/
-
-    public function setClassif()
-    { ?>
-        <h5>Classifique o cliente abaixo</h5>
-            <select name="classificacao">
-                <option value="1">1 Estrela</option>
-                <option value="2">2 Estrelas</option>
-                <option value="3">3 Estrelas</option>
-                <option value="4">4 Estrelas</option>
-                <option value="5">5 Estrelas</option>
-            </select><br><br>
-            <?php
-    }
 /*
     public function verClassif()
     {
@@ -114,13 +103,6 @@ class Cliente
             echo 'Classificação: ' . $classificacao . '<br>';
         }
     } */
-
-    public function setEndCob()
-    { ?>
-        <h5>Cadastre um endereço de cobrança para o cliente abaixo</h5>
-            <input type="text" name="endcob"><br><br>
-            <?php
-    }
 
     public function setBoth()
     {
@@ -133,35 +115,35 @@ class Cliente
                 <?php
                 if (empty($classificacao) && ! empty($endcobranca)){
                     if (! empty($_SESSION[$cliente]['classificacao'])){
-                        echo 'Classificação: '.$_SESSION[$cliente]['classificacao'].'<br>';}
+                        echo $_SESSION[$cliente]['classificacao'].'<br>';}
                         else {?>
                     <input type="text" value="<?php echo $cliente;?>" name="cliente"><br><br> <?php
-                    $this->setClassif();}
-                    echo 'Endereço de cobrança: '.$endcobranca.'<br><br>';
+                    setClassif();}
+                    echo $endcobranca.'<br><br>';
                 } if (empty($endcobranca) && ! empty($classificacao)){
-                    echo 'Classificação: '.$classificacao.'<br><br>';
+                    echo $classificacao.'<br><br>';
                     if (! empty ($_SESSION[$cliente]['endcobranca'])){
-                        echo 'Endereço de cobrança: '.$_SESSION[$cliente]['endcobranca'].'<br>';
+                        echo$_SESSION[$cliente]['endcobranca'].'<br>';
                     }else { ?>
                     <input type="text" value="<?php echo $cliente;?>" name="cliente"><br><br> <?php
-                    $this->setEndCob();
+                    setEndCob();
                 }} if (empty($classificacao) && empty($endcobranca)){
                     if (!empty ($_SESSION[$cliente]['classificacao'])){
-                        echo 'Classificação: '.$_SESSION[$cliente]['classificacao'].'<br>';
+                        echo $_SESSION[$cliente]['classificacao'].'<br>';
                     }
                     if (! empty ($_SESSION['endcobranca'])){
-                        echo 'Endereço de cobrança: '.$_SESSION[$cliente]['endcobranca'].'<br>';
+                        echo $_SESSION[$cliente]['endcobranca'].'<br>';
                     }
                     if (empty ($_SESSION[$cliente]['classificacao']) && empty ($_SESSION['endcobranca'])){?>
                     <input type="text" value="<?php echo $cliente;?>" name="cliente"><br><br> <?php
-                    $this->setClassif();
-                    $this->setEndCob();
+                    setClassif();
+                    setEndCob();
                 }} ?>
                 <input type="submit" value="Enviar" class="cliente-enviar">
             </form> <?php
         } else {
-            echo 'Classificação: '.$classificacao.'<br><br>';
-            echo 'Endereço de cobrança: '.$endcobranca.'<br><br>';
+            echo $classificacao.'<br><br>';
+            echo $endcobranca.'<br><br>';
         }
     }
 

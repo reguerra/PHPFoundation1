@@ -78,7 +78,22 @@ function getRoute() {
     require_once $path.$file.'.php';
 }
 
-/**
- * Retorna o conteúdo da página.
- * @return void
- */
+function setClassif()
+{ ?>
+    <h5>Classifique o cliente abaixo</h5>
+    <select name="classificacao">
+        <option value="1">1 Estrela</option>
+        <option value="2">2 Estrelas</option>
+        <option value="3">3 Estrelas</option>
+        <option value="4">4 Estrelas</option>
+        <option value="5">5 Estrelas</option>
+    </select><br><br>
+<?php
+}
+
+function setEndCob()
+{ ?>
+    <h5>Cadastre um endereço de cobrança para o cliente abaixo</h5>
+    <input type="text" name="endcob"><br><br>
+<?php
+}

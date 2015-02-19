@@ -20,6 +20,8 @@ echo '<p>Clique no cliente para listar os dados individuais</p>'; ?>
 
     <?php
 
+
+
     foreach ($clientes as $c){
         $classificacao = $c->getClassificacao();
         $cliente = $c->getNome();?>
