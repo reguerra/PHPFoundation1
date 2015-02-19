@@ -1,5 +1,6 @@
 <?php
 
+require_once PHP_ROOT.'/templates/newclient.php';
 /**
  * Developer: Usado para debugar variáveis.
  */

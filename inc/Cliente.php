@@ -104,49 +104,6 @@ class Cliente
         }
     } */
 
-    public function setBoth()
-    {
-        $cliente = $this->getNome();
-        $classificacao = $this->getClassificacao();
-        $endcobranca = $this->getEndcobranca();
-
-        if (empty ($classificacao) or empty ($endcobranca)){?>
-            <form action="/dados" class="form-group" id="form-cliente" name="form-cliente" method="post">
-                <?php
-                if (empty($classificacao) && ! empty($endcobranca)){
-                    if (! empty($_SESSION[$cliente]['classificacao'])){
-                        echo $_SESSION[$cliente]['classificacao'].'<br>';}
-                        else {?>
-                    <input type="text" value="<?php echo $cliente;?>" name="cliente"><br><br> <?php
-                    setClassif();}
-                    echo $endcobranca.'<br><br>';
-                } if (empty($endcobranca) && ! empty($classificacao)){
-                    echo $classificacao.'<br><br>';
-                    if (! empty ($_SESSION[$cliente]['endcobranca'])){
-                        echo$_SESSION[$cliente]['endcobranca'].'<br>';
-                    }else { ?>
-                    <input type="text" value="<?php echo $cliente;?>" name="cliente"><br><br> <?php
-                    setEndCob();
-                }} if (empty($classificacao) && empty($endcobranca)){
-                    if (!empty ($_SESSION[$cliente]['classificacao'])){
-                        echo $_SESSION[$cliente]['classificacao'].'<br>';
-                    }
-                    if (! empty ($_SESSION['endcobranca'])){
-                        echo $_SESSION[$cliente]['endcobranca'].'<br>';
-                    }
-                    if (empty ($_SESSION[$cliente]['classificacao']) && empty ($_SESSION['endcobranca'])){?>
-                    <input type="text" value="<?php echo $cliente;?>" name="cliente"><br><br> <?php
-                    setClassif();
-                    setEndCob();
-                }} ?>
-                <input type="submit" value="Enviar" class="cliente-enviar">
-            </form> <?php
-        } else {
-            echo $classificacao.'<br><br>';
-            echo $endcobranca.'<br><br>';
-        }
-    }
-
     public function setDois(){
 
         if (! empty($_POST['cliente'])){

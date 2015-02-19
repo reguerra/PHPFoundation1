@@ -20,7 +20,7 @@ echo '<p>Clique no cliente para listar os dados individuais</p>'; ?>
 
     <?php
 
-
+    global $clientes;
 
     foreach ($clientes as $c){
         $classificacao = $c->getClassificacao();
